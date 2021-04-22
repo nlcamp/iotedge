@@ -1,0 +1,52 @@
+@startuml obs-v2-opt2-statsd-or-custom-with-back-compat
+skinparam ranksep 1
+cloud "Azure Cloud\n" {
+    component "IoT Hub" as IH #white
+    component "Azure Monitor" as AM #white
+    component "OTel Collector" as OTC #white
+    [OTel Compat Backends] #white
+}
+node "IoT Edge Device" {
+    component "Customer Module\n" as EM {
+        component "Obs Client" as EMOC
+        component "Prom Server" as EMPS
+    }
+    component "Metrics Module\n" as MM {
+        component "Prom Client" as MMPC
+    }   
+
+    folder "System Services" {
+        component "1st Party Services\n(TPM/Keys/Certs/Ident)\n" {
+            component "Obs Client" as FPOC
+        }
+        component "Observability Agent\t\t\t\t\t\t\t\t\t\t\t\t\n" as OA {
+            component "Obs API Server" as OAS
+            component "Prom Client" as OAPC
+            component "Telemetry Translator" as TT
+            component "OTLP Exporter" as OTE <<OTel Compat Layer>>
+            component "Persistence Processor" as PP
+            component "MQTT Client" as OAMC
+
+            OAPC --> TT : statsd OR custom
+            OAS --> PP : statsd OR custom
+            TT --> OAMC : MQTT
+            PP -> TT : statsd OR custom
+            TT --> OTE : OTLP
+        }
+
+        FPOC --> OAS : HTTP_over_UDS (push)
+    }
+
+    EMPS --> MMPC : HTTP (pull)
+    EMPS --> OAPC : HTTP (pull)
+    EMOC --> OAS : HTTP_over_UDS (push)
+    OAMC --> IH : MQTT
+    OTC --> [OTel Compat Backends]
+}
+
+MM --> AM : HTTP (push)
+OTE --> OTC : OTLP
+IH --> AM
+
+@enduml
+@enduml

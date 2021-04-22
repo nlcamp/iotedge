@@ -1,0 +1,44 @@
+@startuml obs-v2-opt1-otel
+'Option 1: Use OTel
+skinparam ranksep 1
+cloud "Azure Cloud\n" {
+    component "IoT Hub" as IH #White
+    component "Azure Monitor" as AM #White
+    component "OTel Collector" as OTC <<optional>> #White
+    [OTel Compat Backends] #White
+}
+node "IoT Edge Device" {
+    component "Customer Module\n" as CM {
+        component "OTel API" as CMOC #LightGrey
+    }
+
+    folder "System Services" {
+        component "1st Party Services\n(TPM/Keys/Certs/Ident)\n" {
+            component "OTel API" as FPOC #LightGrey
+        }
+        component "Observability Agent\t\t\t\t\t\t\t\t\t\t\t\t" as OA {
+            component "OTLP Receiver" as OAS
+            component "Telemetry Translator" as TT
+            component "OTLP Exporter" as OTE
+            component "Persistence Processor" as PP
+            component "MQTT Client" as OAMC
+
+            OAS --> PP : OTLP
+            TT --> OAMC : MQTT
+            PP -> TT : OTLP
+            TT --> OTE : OTLP
+        }
+
+        FPOC --> OAS : OTLP via HTTP-over-UDS (push)
+    }
+
+    CMOC -> OAS : OTLP via HTTP-over-UDS (push)
+    OAMC --> IH : MQTT
+    OTC --> [OTel Compat Backends]
+}
+
+OTE --> OTC : OTLP
+IH --> AM
+
+@enduml
+@enduml

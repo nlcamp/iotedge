@@ -1,0 +1,44 @@
+@startuml obs-v2-opt3-prometheus
+'Option 3: Continue using Prometheus
+skinparam ranksep 1
+cloud "Azure Cloud\n" {
+    component "IoT Hub" as IH #White
+    component "Azure Monitor" as AM #White
+    component "OTel Collector" as OTC <<optional>> #White
+    [OTel Compat Backends] #White
+}
+node "IoT Edge Device" {
+    component "Customer Module\n" as CM {
+        component "Prometheus Server" as EMPS
+    }
+    
+    folder "System Services" {
+        component "1st Party Services\n(TPM/Keys/Certs/Ident)\n" {
+            component "Prometheus Server" as FPPS
+        }
+        component "Observability Agent\t\t\t\t\t\t\t\t\t\t\t\t\n" as OA {
+            component "Prometheus Client" as OAPC            
+            component "Telemetry Translator" as TT
+            component "OTLP Exporter" as OTE <<OTel Compat Layer>>
+            component "Persistence Processor" as PP
+            component "MQTT Client" as OAMC
+
+            OAPC --> PP : Prom
+            TT --> OAMC : MQTT
+            PP -> TT : Prom 
+            TT --> OTE : OTLP
+        }
+
+        FPPS --> OAPC : HTTP (pull)
+    }
+
+    EMPS --> OAPC : HTTP (pull)
+    OAMC --> IH : MQTT
+    OTC --> [OTel Compat Backends]
+}
+
+OTE --> OTC : OTLP
+IH --> AM
+
+@enduml
+@enduml

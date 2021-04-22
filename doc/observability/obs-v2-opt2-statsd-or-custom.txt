@@ -1,0 +1,50 @@
+@startuml obs-v2-opt2-statsd-or-custom
+'Option 2: Use a home-grown proprietary metrics system (or statsd)
+skinparam ranksep 1
+cloud "Azure Cloud\n" {
+    component "IoT Hub" as IH #White
+    component "Azure Monitor" as AM #White
+    component "OTel Collector" as OTC <<optional>> #White
+    [OTel Compat Backends] #White
+}
+node "IoT Edge Device" {
+    component "Customer Module\n" as CM {
+        component "Obs Client" as CMOC
+    }
+'   component "Customer Module 2\n" as CM2 {
+'        component "Obs Agent Exporter\n" as OAE <<Otel Compat Layer>> {
+'            component "Obs Client" as CM2OC
+'        }
+'    }
+
+    folder "System Services" {
+        component "1st Party Services\n(TPM/Keys/Certs/Ident)\n" {
+            component "Obs Client" as FPOC
+        }
+        component "Observability Agent\t\t\t\t\t\t\t\t\t\t\t\t" as OA {
+            component "Obs API Server" as OAS
+            component "Telemetry Translator" as TT
+            component "OTLP Exporter" as OTE <<OTel Compat Layer>>
+            component "Persistence Processor" as PP
+            component "MQTT Client" as OAMC
+
+            OAS --> PP : statsd OR custom
+            TT --> OAMC : MQTT
+            PP -> TT : statsd OR custom
+            TT --> OTE : OTLP
+        }
+
+        FPOC --> OAS : statsd OR custom via HTTP/UDS (push)
+    }
+
+    CMOC -> OAS : statsd OR custom via HTTP/UDS (push)
+'    CM2OC --> OAS : HTTP_over_UDS (push)
+    OAMC -> IH : MQTT
+    OTC --> [OTel Compat Backends]
+}
+
+OTE --> OTC : OTLP
+IH --> AM
+
+@enduml
+@enduml
