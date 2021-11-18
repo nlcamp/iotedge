@@ -29,5 +29,5 @@ aziot-identity-client-async = { git = "https://github.com/nlcamp/iot-identity-se
 aziot-identity-common = { git = "https://github.com/nlcamp/iot-identity-service", branch = "edge-tracer-hackathon2021-master" }
 aziot-identity-common-http = { git = "https://github.com/nlcamp/iot-identity-service", branch = "edge-tracer-hackathon2021-master" }
 
-http-common = { git = "https://github.com/nlcamp/iot-identity-service", branch = "edge-tracer-hackathon2021-master", features = ["otel"] }
+http-common = { git = "https://github.com/nimanch/iot-identity-service", branch = "nimanch-edge-tracer-master"}
 logger = { git = "https://github.com/nlcamp/iot-identity-service", branch = "edge-tracer-hackathon2021-master" }

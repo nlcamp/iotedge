@@ -113,7 +113,7 @@ dependencies = [
  "aziot-cert-common-http",
  "aziot-key-common",
  "http 0.2.5",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master)",
  "hyper 0.14.14",
  "percent-encoding 2.1.0",
 ]
@@ -133,7 +133,7 @@ version = "0.1.0"
 source = "git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master#836c922865dfae5a0f8892b62ed472daf796e73d"
 dependencies = [
  "hex 0.4.3",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master)",
  "libc",
  "openssl",
  "serde",
@@ -157,7 +157,7 @@ dependencies = [
  "edgelet-http-workload",
  "edgelet-settings",
  "futures-util",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nimanch/iot-identity-service?branch=nimanch-edge-tracer-master)",
  "log",
  "logger",
  "opentelemetry",
@@ -178,7 +178,7 @@ dependencies = [
  "aziot-identity-common",
  "aziot-identity-common-http",
  "http 0.2.5",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master)",
  "hyper 0.14.14",
  "percent-encoding 2.1.0",
 ]
@@ -189,7 +189,7 @@ version = "0.1.0"
 source = "git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master#836c922865dfae5a0f8892b62ed472daf796e73d"
 dependencies = [
  "aziot-key-common",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master)",
  "serde",
 ]
 
@@ -201,7 +201,7 @@ dependencies = [
  "aziot-cert-common-http",
  "aziot-identity-common",
  "aziot-key-common",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master)",
  "serde",
  "serde_json",
 ]
@@ -212,7 +212,7 @@ version = "0.1.0"
 source = "git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master#836c922865dfae5a0f8892b62ed472daf796e73d"
 dependencies = [
  "aziot-identity-common",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master)",
  "libc",
  "serde",
  "url 2.2.2",
@@ -226,7 +226,7 @@ dependencies = [
  "aziot-key-common",
  "aziot-key-common-http",
  "http 0.2.5",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master)",
  "httparse",
  "percent-encoding 2.1.0",
  "serde",
@@ -241,7 +241,7 @@ dependencies = [
  "aziot-key-common",
  "aziot-key-common-http",
  "http 0.2.5",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master)",
  "hyper 0.14.14",
  "percent-encoding 2.1.0",
 ]
@@ -260,7 +260,7 @@ version = "0.1.0"
 source = "git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master#836c922865dfae5a0f8892b62ed472daf796e73d"
 dependencies = [
  "aziot-key-common",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master)",
  "serde",
 ]
 
@@ -287,7 +287,7 @@ name = "aziot-keyd-config"
 version = "0.1.0"
 source = "git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master#836c922865dfae5a0f8892b62ed472daf796e73d"
 dependencies = [
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master)",
  "libc",
  "serde",
 ]
@@ -307,7 +307,7 @@ name = "aziot-tpmd-config"
 version = "0.1.0"
 source = "git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master#836c922865dfae5a0f8892b62ed472daf796e73d"
 dependencies = [
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master)",
  "serde",
 ]
 
@@ -323,7 +323,7 @@ dependencies = [
  "aziot-keys-common",
  "aziot-tpmd-config",
  "base64 0.13.0",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nlcamp/iot-identity-service?branch=edge-tracer-hackathon2021-master)",
  "log",
  "nix 0.18.0",
  "serde",
@@ -726,7 +726,7 @@ dependencies = [
  "async-trait",
  "base64 0.9.3",
  "futures 0.1.31",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nimanch/iot-identity-service?branch=nimanch-edge-tracer-master)",
  "hyper 0.14.14",
  "serde",
  "serde_derive",
@@ -778,7 +778,7 @@ dependencies = [
  "failure",
  "futures 0.3.17",
  "hex 0.3.2",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nimanch/iot-identity-service?branch=nimanch-edge-tracer-master)",
  "hyper 0.14.14",
  "libc",
  "log",
@@ -808,7 +808,7 @@ dependencies = [
  "edgelet-test-utils",
  "futures-util",
  "http 0.2.5",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nimanch/iot-identity-service?branch=nimanch-edge-tracer-master)",
  "libc",
  "log",
  "percent-encoding 2.1.0",
@@ -832,7 +832,7 @@ dependencies = [
  "edgelet-test-utils",
  "futures-util",
  "http 0.2.5",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nimanch/iot-identity-service?branch=nimanch-edge-tracer-master)",
  "hyper 0.14.14",
  "libc",
  "log",
@@ -873,7 +873,7 @@ dependencies = [
  "edgelet-test-utils",
  "futures-util",
  "http 0.2.5",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nimanch/iot-identity-service?branch=nimanch-edge-tracer-master)",
  "hyper 0.14.14",
  "libc",
  "log",
@@ -1357,6 +1357,33 @@ dependencies = [
  "nix 0.18.0",
  "openssl",
  "openssl-sys",
+ "percent-encoding 2.1.0",
+ "serde",
+ "serde_json",
+ "tokio 1.13.0",
+ "tracing",
+ "url 2.2.2",
+]
+
+[[package]]
+name = "http-common"
+version = "0.1.0"
+source = "git+https://github.com/nimanch/iot-identity-service?branch=nimanch-edge-tracer-master#d64c7e511e0b20cd4c726080cf1747cc41b3e618"
+dependencies = [
+ "async-trait",
+ "base64 0.13.0",
+ "cfg-if 1.0.0",
+ "futures-util",
+ "headers",
+ "http 0.2.5",
+ "hyper 0.14.14",
+ "hyper-openssl",
+ "hyper-proxy 0.9.1",
+ "libc",
+ "log",
+ "nix 0.18.0",
+ "openssl",
+ "openssl-sys",
  "opentelemetry",
  "opentelemetry-http",
  "opentelemetry-otlp",
@@ -1597,7 +1624,7 @@ dependencies = [
  "failure",
  "futures 0.1.31",
  "hex 0.3.2",
- "http-common",
+ "http-common 0.1.0 (git+https://github.com/nimanch/iot-identity-service?branch=nimanch-edge-tracer-master)",
  "hyper 0.14.14",
  "hyper-proxy 0.5.1",
  "lazy_static",

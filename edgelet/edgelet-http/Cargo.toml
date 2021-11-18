@@ -18,7 +18,7 @@ serde_json = "1"
 edgelet-core = { path = "../edgelet-core" }
 edgelet-settings = { path = "../edgelet-settings" }
 
-http-common = { git = "https://github.com/nlcamp/iot-identity-service", branch = "edge-tracer-hackathon2021-master", features = ["otel"] }
+http-common = { git = "https://github.com/nimanch/iot-identity-service", branch = "nimanch-edge-tracer-master"}
 
 [dev-dependencies]
 tokio = { version = "1", features = ["macros"] }

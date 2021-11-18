@@ -31,7 +31,7 @@ docker = {path = "../docker-rs"}
 edgelet-core = {path = "../edgelet-core"}
 edgelet-settings = {path = "../edgelet-settings", features = ["settings-docker"]}
 edgelet-utils = {path = "../edgelet-utils"}
-http-common = { git = "https://github.com/nlcamp/iot-identity-service", branch = "edge-tracer-hackathon2021-master", features = ["otel"] }
+http-common = { git = "https://github.com/nimanch/iot-identity-service", branch = "nimanch-edge-tracer-master"}
 libc = "0.2.66"
 
 [dev_dependencies]
