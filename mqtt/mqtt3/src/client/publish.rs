@@ -365,6 +365,11 @@ impl Default for State {
 pub struct PublishHandle(futures_channel::mpsc::Sender<PublishRequest>);
 
 impl PublishHandle {
+    /// Create a new PublishHandle
+    pub fn new(sender: futures_channel::mpsc::Sender<PublishRequest>) -> PublishHandle {
+        Self(sender)
+    }
+
     /// Publish the given message to the server
     pub async fn publish(
         &mut self,
@@ -415,7 +420,7 @@ impl std::error::Error for PublishError {
 }
 
 #[derive(Debug)]
-struct PublishRequest {
+pub struct PublishRequest {
     publication: crate::proto::Publication,
     ack_sender: futures_channel::oneshot::Sender<()>,
 }
